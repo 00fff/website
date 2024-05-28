@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <p>Topic: {{ hobby.text }}</p>
+
+  <p>Entries:</p>
+  <ul>
+    {% for hobbyDescription in hobby.hobbydescription_set.all %}
+    <li>
+        <p>Added: {{ hobbyDescription.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ hobbyDescription.description|linebreaks }}</p>
+    </li>
+    {% empty %}
+    <li>
+        There are no entries for this topic yet.
+    </li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}

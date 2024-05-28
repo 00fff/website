@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <p>Hobbies</p>
+
+  <ul>
+    {% for hobby in hobbies %}
+      <li>
+        <a href="{% url 'hobby' hobby.id %}">{{ hobby }}</a>
+	  </li>
+    {% empty %}
+      <li>No hobby have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}
